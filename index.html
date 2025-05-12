@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="status-bar">
+            <span class="time">7:15</span>
+            <!-- <img src="Img/Ellipse 1.png" alt=""> -->
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <div class="screen" id="welcome-screen">
+            <div class="bubble-decoration"></div>
+            <div class="content-container">
+                <div class="img-container">
+                  <img src="Img/undraw_Preferences_popup_re_4qk0 2.png" alt="">
+                </div>
+                <h1>Getting Things With ToDos</h1>
+                <p>Welcome To Getting Things With ToDos! Your Journey To Better Productivity Starts Here</p>
+            </div>
+            <button class="primary-button" id="get-started-btn">Get Start</button>
+        </div>
+        
+           <!-- Login Screen -->
+        <div class="screen hidden" id="login-screen">
+          <div class="bubble-decoration"></div>
+          <div class="content-container">
+              <h2>Welcome Back</h2>
+              <div class="logo-container">
+                <img src="Img/undraw_mobile_profile_7hvy 1.png" alt="">
+              </div>
+              <form id="login-form" class="form">
+                  <div class="form-field">
+                      <input type="text" placeholder="Enter Your Full Name" id="login-name" required>
+                  </div>
+                  <div class="form-field">
+                      <input type="password" placeholder="Enter Password" id="login-password" required>
+                  </div>
+                  <button type="submit" class="primary-button">Login</button>
+              </form>
+              <div class="form-footer">
+                  <span>Don't Have An Account?</span>
+                  <button class="link-button" id="go-to-register">Sign Up</button>
+              </div>
+          </div>
+      </div>
+
+        <!-- Register Screen -->
+        <div class="screen hidden" id="register-screen">
+            <div class="bubble-decoration"></div>
+            <div class="content-container">
+                <h2>Welcome To Onboard!</h2>
+                <p class="subtitle">Let's Help To Meet Up Your Tasks.</p>
+                <form id="register-form" class="form">
+                    <div class="form-field">
+                        <input type="text" placeholder="Enter Your Full Name" id="register-name" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="email" placeholder="Enter Your Email" id="register-email" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="password" placeholder="Enter Password" id="register-password" required>
+                    </div>
+                    <button type="submit" class="primary-button">Register</button>
+                </form>
+                <div class="form-footer">
+                    <span>Already Have An Account?</span>
+                    <button class="link-button" id="go-to-login">Sign In</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div class="screen hidden" id="dashboard-screen">
+            <div class="bubble-decoration"></div>
+            <div class="user-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h3 id="user-name">User Name</h3>
+                        <span class="user-status">Active</span>
+                    </div>
+                </div>
+                <button id="logout-btn" class="icon-button">
+                    <i class="fas fa-power-off"></i>
+                </button>
+            </div>
+            <div class="dashboard-content">
+                <h2>Dashboard</h2>
+                <div class="search-container">
+                    <input type="text" placeholder="Search For Tasks" id="task-search">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="categories-section">
+                    <h3>Categories</h3>
+                    <div class="categories-grid">
+                        <div class="category-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Work</span>
+                        </div>
+                        <div class="category-item personal">
+                            <i class="fas fa-user"></i>
+                            <span>Personal</span>
+                        </div>
+                        <div class="category-item shopping">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Shopping</span>
+                        </div>
+                        <div class="category-item health">
+                            <i class="fas fa-heart"></i>
+                            <span>Health</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tasks-section">
+                    <h3>Today's Task</h3>
+                    <div id="tasks-container" class="tasks-container">
+                        <!-- Tasks will be added dynamically here -->
+                    </div>
+                </div>
+            </div>
+            <!-- Add Task Button -->
+            <button id="add-task-btn" class="fab-button">
+                <i class="fas fa-plus"></i>
+            </button>
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <button class="nav-button active">
+                    <i class="fas fa-home"></i>
+                </button>
+                <button class="nav-button">
+                    <i class="fas fa-list-check"></i>
+                </button>
+                <div class="nav-spacer"></div>
+                <button class="nav-button">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button class="nav-button">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Task Detail Screen -->
+        <div class="screen hidden" id="task-detail-screen">
+            <div class="detail-header">
+                <button id="back-to-dashboard" class="icon-button white">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar-large">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h2 id="detail-user-name">User Name</h2>
+                </div>
+            </div>
+            <div class="detail-content">
+                <h2>Welcome To Getting Things</h2>
+                <div id="detail-tasks-container" class="detail-tasks">
+                    <!-- Tasks will be added dynamically here -->
+                </div>
+            </div>
+            <div class="detail-footer">
+                <button id="submit-tasks" class="primary-button">Submit</button>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast hidden">
+            <div class="toast-content">
+                <div class="toast-message">
+                    <h4 id="toast-title">Success</h4>
+                    <p id="toast-description">Operation completed successfully</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
